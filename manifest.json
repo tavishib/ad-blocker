@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Tavishi's AdBlocker",
+  "description": "A lightweight personal ad blocker that removes ads using URL filtering + CSS hiding.",
+  "version": "1.0",
+
+  "permissions": ["declarativeNetRequest", "declarativeNetRequestWithHostAccess", "scripting"],
+  "host_permissions": ["<all_urls>"],
+
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AdBlocker"
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
