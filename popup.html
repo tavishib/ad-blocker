@@ -11,22 +11,42 @@
             margin: 0 0 10px 0;
             text-align: center;
         }
+        .stat {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .site-section {
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        #siteStats {
+            font-size: 13px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
         button {
             width: 100%;
             padding: 8px;
-            border: none;
             background: black;
             color: white;
-            font-size: 14px;
+            border: none;
             cursor: pointer;
             border-radius: 6px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h3>Tavishi's AdBlocker</h3>
-    <button id="reload">Reload Page</button>
+    <h3>AdBlocker Stats</h3>
 
+    <div class="stat">Network ads blocked: <span id="netCount">0</span></div>
+    <div class="stat">Cosmetic ads hidden: <span id="cosCount">0</span></div>
+
+    <div class="site-section">Blocked on this site:</div>
+    <div id="siteStats"></div>
+
+    <button id="reload">Reload Page</button>
+    
     <script src="popup.js"></script>
 </body>
 </html>
