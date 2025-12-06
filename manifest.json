@@ -4,7 +4,7 @@
   "description": "A lightweight personal ad blocker that removes ads using URL filtering + CSS hiding.",
   "version": "1.0",
 
-  "permissions": ["declarativeNetRequest", "declarativeNetRequestWithHostAccess", "scripting", "storage"],
+  "permissions": ["declarativeNetRequest", "declarativeNetRequestWithHostAccess", "scripting", "storage", "tabs"],
   "host_permissions": ["<all_urls>"],
 
   "background": {
