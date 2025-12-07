@@ -1,10 +1,12 @@
 const hideAds = () => {
     const selectors = [
-        "[id*='ad']",
-        "[class*='ad']",
-        "[id*='Ad']",
-        "[class*='Ad']",
-        "iframe[src*='ads']",
+        "[id^='ad-']", 
+        "[id$='-ad']",
+        "[id='ad']",
+        "[class^='ad-']",
+        "[class$='-ad']",
+        "[class='ad']",
+        "iframe[src*='ads']", 
         "iframe[src*='doubleclick']"
     ];
 
