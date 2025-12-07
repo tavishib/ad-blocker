@@ -24,7 +24,7 @@ All blocking happens locally; no data ever leaves the browser.
 **Installation (Developer Mode)**
 
 1. Clone the repository:
-git clone https://github.com/<your-username>/<repo-name>.git
+git clone (https://github.com/tavishib/ad-blocker.git)
 
 2. Open Chrome → chrome://extensions
 
