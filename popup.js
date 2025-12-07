@@ -1,27 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Display total stats
-    chrome.storage.local.get(["networkBlocked", "cosmeticBlocked", "siteStats"], (data) => {
 
-        document.getElementById("netCount").innerText = data.networkBlocked || 0;
-        document.getElementById("cosCount").innerText = data.cosmeticBlocked || 0;
+    // Load & Display Statistics
+    chrome.storage.local.get(
+        ["networkBlocked", "cosmeticBlocked", "siteStats"],
+        (data = {}) => {
 
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            if (!tabs || tabs.length === 0) return;
+            const net = data.networkBlocked ?? 0;
+            const cos = data.cosmeticBlocked ?? 0;
 
-            const url = new URL(tabs[0].url);
-            const host = url.hostname;
+            document.getElementById("netCount").innerText = net;
+            document.getElementById("cosCount").innerText = cos;
 
-            const siteStats = data.siteStats || {};
-            const count = siteStats[host] || 0;
+            chrome.tabs.query(
+                { active: true, currentWindow: true },
+                (tabs) => {
+                    if (!tabs || tabs.length === 0) return;
 
-            document.getElementById("siteStats").innerText =
-                host + ": " + count + " ads blocked";
-        });
-    });
+                    const url = new URL(tabs[0].url);
+                    const host = url.hostname;
 
+                    const stats = data.siteStats || {};
+                    const count = stats[host] || 0;
+
+                    document.getElementById("siteStats").innerText =
+                        `${host}: ${count} ads blocked`;
+                }
+            );
+        }
+    );
+
+    // Reload Page Button
     document.getElementById("reload").addEventListener("click", () => {
-        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            chrome.tabs.reload(tabs[0].id);
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            if (tabs && tabs.length > 0) {
+                chrome.tabs.reload(tabs[0].id);
+            }
         });
     });
+
 });
