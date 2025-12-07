@@ -44,15 +44,6 @@ Service Workers
 Content Scripts
 Chrome Storage API (local)
 
-**Project Structure**
-/ad-blocker
- ├── manifest.json
- ├── rules.json
- ├── service_worker.js
- ├── content.js
- ├── popup.html
- └── popup.js
-
 **How It Works**
 
 Network blocking
