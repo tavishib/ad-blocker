@@ -15,12 +15,24 @@
     "id": 3,
     "priority": 1,
     "action": {"type": "block"},
-    "condition": {"urlFilter": "adsystem.com"}
+    "condition": {"urlFilter": "taboola.com"}
   },
   {
     "id": 4,
     "priority": 1,
     "action": {"type": "block"},
-    "condition": {"urlFilter": "adservice.google.com"}
+    "condition": {"urlFilter": "outbrain.com"}
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {"type": "block"},
+    "condition": {"urlFilter": "amazon-adsystem.com"}
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {"type": "block"},
+    "condition": {"urlFilter": "scorecardresearch.com"}
   }
 ]
